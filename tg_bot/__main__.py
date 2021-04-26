@@ -18,7 +18,6 @@ from tg_bot.modules.helper_funcs.chat_status import is_user_admin
 from tg_bot.modules.helper_funcs.misc import paginate_modules
 
 PM_START_TEXT = """
-https://telegra.ph/file/b952f2ab533e36a857e48.jpg
 hoi {}, my name is {}! if you have any questions about how to use me please give me /help... 
 
 im a group manager bot maintained by  [this person](tg://user?id={}).
@@ -30,7 +29,7 @@ Wann a bot like me contact @elricX..
 For more commands click /help...
 
 #**Keep in mind that any changes you DO do to the source have to be on github, as per the license.**
-
+("https://telegra.ph/file/b952f2ab533e36a857e48.jpg")
 """
 
 HELP_STRINGS = """
