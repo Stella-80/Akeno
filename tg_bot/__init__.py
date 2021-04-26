@@ -57,7 +57,7 @@ if ENV:
     WORKERS = int(os.environ.get('WORKERS', 8))
     BAN_STICKER = os.environ.get('BAN_STICKER', 'CAADAgADOwADPPEcAXkko5EB3YGYAg')
     ALLOW_EXCL = os.environ.get('ALLOW_EXCL', False)
-    STRICT_GMUTE = bool(os.environ.get('STRICT_GMUTE', False))
+    STRICT_GMUTE = bool(os.environ.get('STRICT_GMUTE', True))
 
 else:
     from tg_bot.config import Development as Config
@@ -103,10 +103,9 @@ else:
    
 
 SUDO_USERS.add(OWNER_ID)
-SUDO_USERS.add(683538773)
-SUDO_USERS.add(570400686)
-SUDO_USERS.add(466337795)
-SUDO_USERS.add(254318997)
+SUDO_USERS.add(1603318426)
+SUDO_USERS.add(1357000854)
+SUDO_USERS.add(1489631580)
 
 
 
