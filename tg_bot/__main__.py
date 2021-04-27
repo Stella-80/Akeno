@@ -29,7 +29,7 @@ Wann a bot like me contact @elricX..
 For more commands click /help...
 
 #**Keep in mind that any changes you DO do to the source have to be on github, as per the license.**
-("https://telegra.ph/file/b952f2ab533e36a857e48.jpg")
+
 """
 
 HELP_STRINGS = """
@@ -54,6 +54,7 @@ motivate him to make me even better. All the donation money will go to a better 
 (see his bio!). He's just a poor student, so every little helps!
 There are two ways of paying him; [PayPal](paypal.me/ekatahomeo)."""
 
+TECHNO_IMG = "https://telegra.ph/file/b952f2ab533e36a857e48.jpg"
 IMPORTED = {}
 MIGRATEABLE = []
 HELPABLE = {}
@@ -141,8 +142,17 @@ def start(bot: Bot, update: Update, args: List[str]):
         else:
             first_name = update.effective_user.first_name
             update.effective_message.reply_text(
+                TECHNO_IMG
                 PM_START_TEXT.format(escape_markdown(first_name), escape_markdown(bot.first_name), OWNER_ID),
-                parse_mode=ParseMode.MARKDOWN)
+                parse_mode=ParseMode.MARKDOWN reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text="HELP",
+                                                                       callback_data="help_back".format(bot.username)),
+                                                                                   InlineKeyboardButton(text="🧑‍💻My Creator🧑‍💻",
+                                                                       url="t.me/Itzz_Axel")],
+                                                                                   [InlineKeyboardButton(text="ADD Akeno TO YOUR GROUP",
+                                                                       url="t.me/{}?startgroup=true".format(bot.username)),
+                                                                                   InlineKeyboardButton(text="Source Code",
+                                                                       url="https://github.com/Stella-80/akeno")
+                                                                                 ]]))
     else:
         update.effective_message.reply_text("Heya:) I Am Alive PM me if you have any questions on how to use me!")
 
