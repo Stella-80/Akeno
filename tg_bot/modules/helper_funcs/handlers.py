@@ -1,11 +1,19 @@
 import telegram.ext as tg
 from telegram import Update
+from telegram.ext import CommandHandler, RegexHandler, MessageHandler
+from tg_bot import ALLOW_EXCL
+import tg_bot.modules.sql.blacklistusers_sql as sql
 
+if ALLOW_EXCL:
 CMD_STARTERS = ('/', '!')
+else:
+    CMD_STARTERS = ('/')
 
 
 class CustomCommandHandler(tg.CommandHandler):
+    
     def __init__(self, command, callback, **kwargs):
+        
         if "admin_ok" in kwargs:
             del kwargs["admin_ok"]
         super().__init__(command, callback, **kwargs)
@@ -14,6 +22,9 @@ class CustomCommandHandler(tg.CommandHandler):
         if (isinstance(update, Update)
                 and (update.message or update.edited_message and self.allow_edited)):
             message = update.message or update.edited_message
+            
+            if sql.is_user_blacklisted(update.effective_user.id):
+                return False
 
             if message.text and len(message.text) > 1:
                 fst_word = message.text_html.split(None, 1)[0]
@@ -36,3 +47,8 @@ class CustomCommandHandler(tg.CommandHandler):
 class CustomRegexHandler(tg.RegexHandler):
     def __init__(self, pattern, callback, friendly="", **kwargs):
         super().__init__(pattern, callback, **kwargs)
+        
+        
+class CustomMessageHandler(MessageHandler):
+    def __init__(self, filters, callback, friendly="", **kwargs):
+         super().__init__(filters, callback, **kwargs)
