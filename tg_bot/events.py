@@ -4,8 +4,6 @@ import logging
 import re
 from pathlib import Path
 
-from telethon import events
-
 from tg_bot import CMD_LIST, LOAD_PLUG, tbot
 import glob
 import sys
