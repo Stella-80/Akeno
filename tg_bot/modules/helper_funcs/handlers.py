@@ -6,8 +6,6 @@ import tg_bot.modules.sql.blacklistusers_sql as sql
 
 CMD_STARTERS = ('/', '!')
 
-    CMD_STARTERS = ('/')
-
 
 class CustomCommandHandler(tg.CommandHandler):
     
