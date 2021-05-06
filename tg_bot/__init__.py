@@ -1,8 +1,7 @@
 import logging
 import os
 import sys
-from telethon import TelegramClient
-from telethon.sessions import StringSession
+
 
 import telegram.ext as tg
 
