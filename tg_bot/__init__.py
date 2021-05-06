@@ -1,6 +1,8 @@
 import logging
 import os
 import sys
+from telethon import TelegramClient
+from telethon.sessions import StringSession
 
 import telegram.ext as tg
 
@@ -21,7 +23,7 @@ if sys.version_info[0] < 3 or sys.version_info[1] < 6:
     LOGGER.error("You MUST have a python version of at least 3.6! Multiple features depend on this. Bot quitting.")
     quit(1)
 
-ENV = bool(os.environ.get('ENV', False))
+ENV = bool(os.environ.get('ENV', True))
 
 if ENV:
     TOKEN = os.environ.get('TOKEN', None)
@@ -47,6 +49,8 @@ if ENV:
         WHITELIST_USERS = set(int(x) for x in os.environ.get("WHITELIST_USERS", "").split())
     except ValueError:
         raise Exception("Your whitelisted users list does not contain valid integers.")
+        
+if ENV:
 
     WEBHOOK = bool(os.environ.get('WEBHOOK', False))
     URL = os.environ.get('URL', "")  # Does not contain token
@@ -63,6 +67,36 @@ if ENV:
     BAN_STICKER = os.environ.get('BAN_STICKER', 'CAADAgADOwADPPEcAXkko5EB3YGYAg')
     ALLOW_EXCL = os.environ.get('ALLOW_EXCL', False)
     STRICT_GMUTE = bool(os.environ.get('STRICT_GMUTE', True))
+    TOKEN = os.environ.get("TOKEN", None)
+    OWNER_ID = int(os.environ.get("OWNER_ID", None))
+    GBAN_LOGS = os.environ.get("GBAN_LOGS", None)
+    OWNER_USERNAME = os.environ.get("OWNER_USERNAME", None)
+    SUDO_USERS = {int(x) for x in os.environ.get("SUDO_USERS", "").split()}
+    API_KEY = os.environ.get("API_KEY", None)
+    API_HASH = os.environ.get("API_HASH", None)
+    OPENWEATHERMAP_ID = os.environ.get("OPENWEATHERMAP_ID", None)
+    DB_URI = os.environ.get("DATABASE_URL")
+    YOUTUBE_API_KEY = os.environ.get("YOUTUBE_API_KEY", None)
+    TEMP_DOWNLOAD_DIRECTORY = os.environ.get("TEMP_DOWNLOAD_DIRECTORY", "./")
+    WOLFRAM_ID = os.environ.get("WOLFRAM_ID", None)
+    LYDIA_API_KEY = os.environ.get("LYDIA_API_KEY", None)
+    tbot = TelegramClient(None, API_KEY, API_HASH)
+    SUDO_USERS = list(SUDO_USERS)
+    REM_BG_API_KEY = os.environ.get("REM_BG_API_KEY", None)
+    IBM_WATSON_CRED_URL = os.environ.get("IBM_WATSON_CRED_URL", None)
+    IBM_WATSON_CRED_PASSWORD = os.environ.get("IBM_WATSON_CRED_PASSWORD", None)
+    WALL_API = os.environ.get("WALL_API", None)
+    CHROME_DRIVER = os.environ.get("CHROME_DRIVER", None)
+    GOOGLE_CHROME_BIN = os.environ.get("GOOGLE_CHROME_BIN", None)
+    CASH_API_KEY = os.environ.get("CASH_API_KEY", None)
+    TIME_API_KEY = os.environ.get("TIME_API_KEY", None)
+    VIRUS_API_KEY = os.environ.get("VIRUS_API_KEY", None)
+    STRING_SESSION = os.environ.get("STRING_SESSION", None)
+    MONGO_DB_URI = os.environ.get("MONGO_DB_URI", None)
+    TEMPORARY_DATA = os.environ.get("TEMPORARY_DATA", None)
+    UPSTREAM_REPO_URL = os.environ.get("UPSTREAM_REPO_URL", None)
+    CONSOLE_LOGGER_VERBOSE = os.environ.get("CONSOLE_LOGGER_VERBOSE", "False")
+    BOT_ID = int(os.environ.get("BOT_ID", None))
 
 else:
     from tg_bot.config import Development as Config
