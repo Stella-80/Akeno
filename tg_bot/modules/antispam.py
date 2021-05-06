@@ -1,5 +1,4 @@
 from tg_bot import TOKEN
-import nude
 import html
 import re
 import asyncio
