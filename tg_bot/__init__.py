@@ -67,7 +67,6 @@ if ENV:
     ALLOW_EXCL = os.environ.get('ALLOW_EXCL', False)
     STRICT_GMUTE = bool(os.environ.get('STRICT_GMUTE', True))
     TOKEN = os.environ.get("TOKEN", None)
-    OWNER_ID = int(os.environ.get("OWNER_ID", None))
     GBAN_LOGS = os.environ.get("GBAN_LOGS", None)
     OWNER_USERNAME = os.environ.get("OWNER_USERNAME", None)
     SUDO_USERS = {int(x) for x in os.environ.get("SUDO_USERS", "").split()}
