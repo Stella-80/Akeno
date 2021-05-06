@@ -3,7 +3,6 @@ import html
 import re
 import asyncio
 from tg_bot.modules.sql import cleaner_sql as sql
-from pymongo import MongoClient
 from tg_bot import DB_URI
 from tg_bot.events import register
 from telethon import types, events
