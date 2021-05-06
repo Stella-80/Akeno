@@ -1,4 +1,4 @@
-from tg_bot import CMD_HELP, BOT_ID
+from tg_bot import BOT_ID
 import nude
 import html
 import re
