@@ -1,4 +1,4 @@
-from tg_bot import BOT_ID
+from tg_bot import TOKEN
 import nude
 import html
 import re
