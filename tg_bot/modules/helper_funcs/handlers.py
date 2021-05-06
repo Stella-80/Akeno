@@ -4,7 +4,6 @@ from telegram.ext import CommandHandler, RegexHandler, MessageHandler
 from tg_bot import ALLOW_EXCL
 import tg_bot.modules.sql.blacklistusers_sql as sql
 
-if ALLOW_EXCL:
 CMD_STARTERS = ('/', '!')
 else:
     CMD_STARTERS = ('/')
