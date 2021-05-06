@@ -4,7 +4,6 @@ import sys
 
 import telegram.ext as tg
 
-StartTime = time.time()
 CMD_LIST = {}
 CMD_HELP = {}
 LOAD_PLUG = {}
